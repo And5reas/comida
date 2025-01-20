@@ -23,7 +23,7 @@ class Comida extends StatelessWidget {
             seedColor: Colors.blue,
             primary: Colors.blue,
             onPrimary: Colors.white,
-            secondary: Colors.cyanAccent,
+            secondary: const Color.fromARGB(255, 255, 193, 24),
             onSecondary: Colors.black,
             error: Colors.red,
             onError: Colors.red.shade100,
