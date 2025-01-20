@@ -1,3 +1,4 @@
+import 'package:comida/screens/meal_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:comida/screens/categories_screen.dart';
 import 'package:comida/screens/categories_meals_screen.dart';
@@ -35,6 +36,7 @@ class Comida extends StatelessWidget {
       routes: {
         AppRoutes.home: (ctx) => CategoriesScreen(),
         AppRoutes.categoriesMeals: (ctx) => CategoriesMealsScreen(),
+        AppRoutes.mealDatail: (ctx) => MealDetailScreen(),
       },
     );
   }
