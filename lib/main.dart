@@ -4,13 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:comida/screens/categories_meals_screen.dart';
 import 'package:comida/screens/tabs_screen.dart';
 import 'package:comida/utils/app_routes.dart';
+import 'package:comida/models/meal.dart';
+import 'package:comida/data/dummy_data.dart';
 
 void main() {
   runApp(Comida());
 }
 
-class Comida extends StatelessWidget {
+class Comida extends StatefulWidget {
   const Comida({super.key});
+
+  @override
+  State<Comida> createState() => _ComidaState();
+}
+
+class _ComidaState extends State<Comida> {
+  List<Meal> _availableMeals = dummyMeals;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +49,8 @@ class Comida extends StatelessWidget {
               ))),
       routes: {
         AppRoutes.home: (ctx) => TabsScreen(),
-        AppRoutes.categoriesMeals: (ctx) => CategoriesMealsScreen(),
+        AppRoutes.categoriesMeals: (ctx) =>
+            CategoriesMealsScreen(_availableMeals),
         AppRoutes.mealDatail: (ctx) => MealDetailScreen(),
         AppRoutes.settings: (ctx) => SettingsScreen(),
       },
