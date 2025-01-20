@@ -20,10 +20,13 @@ class Comida extends StatefulWidget {
 }
 
 class _ComidaState extends State<Comida> {
+  Settings settings = Settings();
   List<Meal> _availableMeals = dummyMeals;
 
   void _filterMeals(Settings settings) {
     setState(() {
+      this.settings = settings;
+
       _availableMeals = dummyMeals.where((meal) {
         final filterGluten = settings.isGlutenFree && !meal.isGlutenFree;
         final filterLactose = settings.isLactoseFree && !meal.isLactoseFree;
@@ -69,7 +72,7 @@ class _ComidaState extends State<Comida> {
         AppRoutes.categoriesMeals: (ctx) =>
             CategoriesMealsScreen(_availableMeals),
         AppRoutes.mealDatail: (ctx) => MealDetailScreen(),
-        AppRoutes.settings: (ctx) => SettingsScreen(_filterMeals),
+        AppRoutes.settings: (ctx) => SettingsScreen(settings, _filterMeals),
       },
     );
   }
