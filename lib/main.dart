@@ -22,6 +22,7 @@ class Comida extends StatefulWidget {
 class _ComidaState extends State<Comida> {
   Settings settings = Settings();
   List<Meal> _availableMeals = dummyMeals;
+  List<Meal> _favoriteMeals = [];
 
   void _filterMeals(Settings settings) {
     setState(() {
@@ -39,6 +40,18 @@ class _ComidaState extends State<Comida> {
             !filterVegetarian;
       }).toList();
     });
+  }
+
+  void _toggleFavorite(Meal meal) {
+    setState(() {
+      _favoriteMeals.contains(meal)
+          ? _favoriteMeals.remove(meal)
+          : _favoriteMeals.add(meal);
+    });
+  }
+
+  bool _isFavorite(Meal meal) {
+    return _favoriteMeals.contains(meal);
   }
 
   @override
@@ -68,10 +81,11 @@ class _ComidaState extends State<Comida> {
                 fontFamily: 'RobotoCondensed',
               ))),
       routes: {
-        AppRoutes.home: (ctx) => TabsScreen(),
+        AppRoutes.home: (ctx) => TabsScreen(_favoriteMeals),
         AppRoutes.categoriesMeals: (ctx) =>
             CategoriesMealsScreen(_availableMeals),
-        AppRoutes.mealDatail: (ctx) => MealDetailScreen(),
+        AppRoutes.mealDatail: (ctx) =>
+            MealDetailScreen(_toggleFavorite, _isFavorite),
         AppRoutes.settings: (ctx) => SettingsScreen(settings, _filterMeals),
       },
     );
