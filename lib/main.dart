@@ -19,8 +19,10 @@ class Comida extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Raleway',
           canvasColor: Color.fromRGBO(255, 254, 229, 1),
-          appBarTheme:
-              AppBarTheme(backgroundColor: Colors.pink, centerTitle: true),
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.pink,
+              centerTitle: true,
+              iconTheme: IconThemeData(color: Colors.white)),
           primarySwatch: Colors.blue,
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.blue,
