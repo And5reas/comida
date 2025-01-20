@@ -1,5 +1,6 @@
 import 'package:comida/screens/categories_screen.dart';
 import 'package:comida/screens/favorite_screen.dart';
+import 'package:comida/components/main_drawer.dart';
 import 'package:flutter/material.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -54,6 +55,7 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
         ],
       ),
+      drawer: MainDrawer(),
     );
   }
 }
