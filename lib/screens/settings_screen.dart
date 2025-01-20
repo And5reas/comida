@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:comida/components/main_drawer.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -15,6 +16,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
       ),
+      drawer: MainDrawer(),
       body: Center(
         child: Text('Configurações'),
       ),
