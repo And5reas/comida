@@ -1,4 +1,5 @@
 import 'package:comida/screens/meal_detail_screen.dart';
+import 'package:comida/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:comida/screens/categories_meals_screen.dart';
 import 'package:comida/screens/tabs_screen.dart';
@@ -18,9 +19,8 @@ class Comida extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Raleway',
           canvasColor: Color.fromRGBO(255, 254, 229, 1),
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.pink,
-          ),
+          appBarTheme:
+              AppBarTheme(backgroundColor: Colors.pink, centerTitle: true),
           primarySwatch: Colors.blue,
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.blue,
@@ -40,6 +40,7 @@ class Comida extends StatelessWidget {
         AppRoutes.home: (ctx) => TabsScreen(),
         AppRoutes.categoriesMeals: (ctx) => CategoriesMealsScreen(),
         AppRoutes.mealDatail: (ctx) => MealDetailScreen(),
+        AppRoutes.settings: (ctx) => SettingsScreen(),
       },
     );
   }

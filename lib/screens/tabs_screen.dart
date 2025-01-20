@@ -28,7 +28,6 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
-        centerTitle: true,
         title: Text(
           _screens[_selectedScreenIndex]['title'] as String,
           style: TextStyle(

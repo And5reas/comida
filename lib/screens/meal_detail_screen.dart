@@ -31,7 +31,6 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
-        centerTitle: true,
         title: Text(
           meal.title,
           style: TextStyle(
