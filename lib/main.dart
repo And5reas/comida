@@ -1,3 +1,4 @@
+import 'package:comida/models/settings.dart';
 import 'package:comida/screens/meal_detail_screen.dart';
 import 'package:comida/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,22 @@ class Comida extends StatefulWidget {
 
 class _ComidaState extends State<Comida> {
   List<Meal> _availableMeals = dummyMeals;
+
+  void _filterMeals(Settings settings) {
+    setState(() {
+      _availableMeals = dummyMeals.where((meal) {
+        final filterGluten = settings.isGlutenFree && !meal.isGlutenFree;
+        final filterLactose = settings.isLactoseFree && !meal.isLactoseFree;
+        final filterVegan = settings.isVegan && !meal.isVegan;
+        final filterVegetarian = settings.isVegetarian && !meal.isVegetarian;
+
+        return !filterGluten &&
+            !filterLactose &&
+            !filterVegan &&
+            !filterVegetarian;
+      }).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +69,7 @@ class _ComidaState extends State<Comida> {
         AppRoutes.categoriesMeals: (ctx) =>
             CategoriesMealsScreen(_availableMeals),
         AppRoutes.mealDatail: (ctx) => MealDetailScreen(),
-        AppRoutes.settings: (ctx) => SettingsScreen(),
+        AppRoutes.settings: (ctx) => SettingsScreen(_filterMeals),
       },
     );
   }
